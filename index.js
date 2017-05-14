@@ -9,7 +9,7 @@ const blue = chalk.blue;
 const red = chalk.red;
 const log = console.log;
 
-const getStats = function () {
+const getStatus = function () {
 
     const options = {
         host: 'onhub.here',
@@ -24,7 +24,7 @@ const getStats = function () {
         });
 
         response.on('end', function () {
-            const stats = JSON.parse(str);
+            const status = JSON.parse(str);
 
             const getFormattedTime = function (seconds) {
                 var minutes = Math.floor(seconds / 60);
@@ -39,17 +39,17 @@ const getStats = function () {
                     seconds + ' seconds';
             }
 
-            if (program.swversion) { log(blue('Software Version:', stats.software.softwareVersion)); }
-            if (program.uptime) { log(blue('Total Uptime:', getFormattedTime(stats.system.uptime))); }
-            if (program.gip) { log(blue('Gateway IP:', stats.wan.gatewayIpAddress)); }
-            if (program.ip) { log(blue('IP Address:', stats.wan.localIpAddress)); }
-            if (program.dns) { log(blue('DNS Servers:', stats.wan.nameServers)); }
+            if (program.swversion) { log(blue('Software Version:', status.software.softwareVersion)); }
+            if (program.uptime) { log(blue('Total Uptime:', getFormattedTime(status.system.uptime))); }
+            if (program.gip) { log(blue('Gateway IP:', status.wan.gatewayIpAddress)); }
+            if (program.ip) { log(blue('IP Address:', status.wan.localIpAddress)); }
+            if (program.dns) { log(blue('DNS Servers:', status.wan.nameServers)); }
             if (program.all) {
-                log(blue('Software Version:', stats.software.softwareVersion));
-                log(blue('Total Uptime:', getFormattedTime(stats.system.uptime)));
-                log(blue('Gateway IP:', stats.wan.gatewayIpAddress));
-                log(blue('IP Address:', stats.wan.localIpAddress));
-                log(blue('DNS Servers:', stats.wan.nameServers));
+                log(blue('Software Version:', status.software.softwareVersion));
+                log(blue('Total Uptime:', getFormattedTime(status.system.uptime)));
+                log(blue('Gateway IP:', status.wan.gatewayIpAddress));
+                log(blue('IP Address:', status.wan.localIpAddress));
+                log(blue('DNS Servers:', status.wan.nameServers));
             }
         });
     }
@@ -69,7 +69,7 @@ program
     .option('-g, --gip', 'Gateway IP')
     .option('-i, --ip', 'IP Address')
     .option('-d, --dns', 'DNS Servers')
-    .option('-a, --all', 'Display all stats')
+    .option('-a, --all', 'Display all')
     .parse(process.argv);
 
 // If no option passed, show help
@@ -77,4 +77,4 @@ if (!process.argv.slice(2).length) {
     program.help();
 }
 
-getStats();
+getStatus();
