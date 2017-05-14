@@ -1,0 +1,17 @@
+{
+  "name": "google-wifi-status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelgeorgev/google-wifi-status.git"
+  },
+  "author": "Joel George V",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelgeorgev/google-wifi-status/issues"
+  },
+  "homepage": "https://github.com/joelgeorgev/google-wifi-status#readme"
+}
