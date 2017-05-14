@@ -4,6 +4,7 @@
 
 const http = require('http');
 const program = require('commander');
+const log = console.log;
 
 const getStats = function () {
 
@@ -35,17 +36,17 @@ const getStats = function () {
                     seconds + ' seconds';
             }
 
-            if (program.swversion) { console.log('Software Version:', stats.software.softwareVersion); }
-            if (program.uptime) { console.log('Total Uptime:', getFormattedTime(stats.system.uptime)); }
-            if (program.gip) { console.log('Gateway IP:', stats.wan.gatewayIpAddress); }
-            if (program.ip) { console.log('IP Address:', stats.wan.localIpAddress); }
-            if (program.dns) { console.log('DNS Servers:', stats.wan.nameServers); }
+            if (program.swversion) { log('Software Version:', stats.software.softwareVersion); }
+            if (program.uptime) { log('Total Uptime:', getFormattedTime(stats.system.uptime)); }
+            if (program.gip) { log('Gateway IP:', stats.wan.gatewayIpAddress); }
+            if (program.ip) { log('IP Address:', stats.wan.localIpAddress); }
+            if (program.dns) { log('DNS Servers:', stats.wan.nameServers); }
             if (program.all) {
-                console.log('Software Version:', stats.software.softwareVersion);
-                console.log('Total Uptime:', getFormattedTime(stats.system.uptime));
-                console.log('Gateway IP:', stats.wan.gatewayIpAddress);
-                console.log('IP Address:', stats.wan.localIpAddress);
-                console.log('DNS Servers:', stats.wan.nameServers);
+                log('Software Version:', stats.software.softwareVersion);
+                log('Total Uptime:', getFormattedTime(stats.system.uptime));
+                log('Gateway IP:', stats.wan.gatewayIpAddress);
+                log('IP Address:', stats.wan.localIpAddress);
+                log('DNS Servers:', stats.wan.nameServers);
             }
         });
     }
