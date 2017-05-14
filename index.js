@@ -4,6 +4,9 @@
 
 const http = require('http');
 const program = require('commander');
+const chalk = require('chalk');
+const blue = chalk.blue;
+const red = chalk.red;
 const log = console.log;
 
 const getStats = function () {
@@ -36,17 +39,17 @@ const getStats = function () {
                     seconds + ' seconds';
             }
 
-            if (program.swversion) { log('Software Version:', stats.software.softwareVersion); }
-            if (program.uptime) { log('Total Uptime:', getFormattedTime(stats.system.uptime)); }
-            if (program.gip) { log('Gateway IP:', stats.wan.gatewayIpAddress); }
-            if (program.ip) { log('IP Address:', stats.wan.localIpAddress); }
-            if (program.dns) { log('DNS Servers:', stats.wan.nameServers); }
+            if (program.swversion) { log(blue('Software Version:', stats.software.softwareVersion)); }
+            if (program.uptime) { log(blue('Total Uptime:', getFormattedTime(stats.system.uptime))); }
+            if (program.gip) { log(blue('Gateway IP:', stats.wan.gatewayIpAddress)); }
+            if (program.ip) { log(blue('IP Address:', stats.wan.localIpAddress)); }
+            if (program.dns) { log(blue('DNS Servers:', stats.wan.nameServers)); }
             if (program.all) {
-                log('Software Version:', stats.software.softwareVersion);
-                log('Total Uptime:', getFormattedTime(stats.system.uptime));
-                log('Gateway IP:', stats.wan.gatewayIpAddress);
-                log('IP Address:', stats.wan.localIpAddress);
-                log('DNS Servers:', stats.wan.nameServers);
+                log(blue('Software Version:', stats.software.softwareVersion));
+                log(blue('Total Uptime:', getFormattedTime(stats.system.uptime)));
+                log(blue('Gateway IP:', stats.wan.gatewayIpAddress));
+                log(blue('IP Address:', stats.wan.localIpAddress));
+                log(blue('DNS Servers:', stats.wan.nameServers));
             }
         });
     }
@@ -54,7 +57,7 @@ const getStats = function () {
     const request = http.request(options, callback);
 
     request.on('error', function () {
-        console.log('Your Google Wifi is offline.');
+        log(red('Your Google Wifi is offline.'));
     });
 
     request.end();
