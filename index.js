@@ -22,14 +22,27 @@ const getStats = function () {
         response.on('end', function () {
             const stats = JSON.parse(str);
 
+            const getFormattedTime = function (seconds) {
+                var minutes = Math.floor(seconds / 60);
+                seconds = seconds % 60;
+                var hours = Math.floor(minutes / 60);
+                minutes = minutes % 60;
+                var days = Math.floor(hours / 24);
+                hours = hours % 24;
+                return days + ' days, ' +
+                    hours + ' hours, ' +
+                    minutes + ' minutes, ' +
+                    seconds + ' seconds';
+            }
+
             if (program.swversion) { console.log('Software Version:', stats.software.softwareVersion); }
-            if (program.uptime) { console.log('Total Uptime:', stats.system.uptime); }
+            if (program.uptime) { console.log('Total Uptime:', getFormattedTime(stats.system.uptime)); }
             if (program.gip) { console.log('Gateway IP:', stats.wan.gatewayIpAddress); }
             if (program.ip) { console.log('IP Address:', stats.wan.localIpAddress); }
             if (program.dns) { console.log('DNS Servers:', stats.wan.nameServers); }
             if (program.all) {
                 console.log('Software Version:', stats.software.softwareVersion);
-                console.log('Total Uptime:', stats.system.uptime);
+                console.log('Total Uptime:', getFormattedTime(stats.system.uptime));
                 console.log('Gateway IP:', stats.wan.gatewayIpAddress);
                 console.log('IP Address:', stats.wan.localIpAddress);
                 console.log('DNS Servers:', stats.wan.nameServers);
