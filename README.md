@@ -2,13 +2,17 @@
 A Node.js CLI app that displays status of your Google Wifi router.
 
 ## Installation
-```
-npm install google-wifi-status -g
+```bash
+$ npm install google-wifi-status -g
 ```
 
 ## Usage
-```
-Options:
+```bash
+$ google-wifi-status --help
+
+  Usage: index [options]
+
+  Options:
 
     -h, --help       output usage information
     -v, --swversion  Software Version
@@ -16,18 +20,18 @@ Options:
     -g, --gip        Gateway IP
     -i, --ip         IP Address
     -d, --dns        DNS Servers
-    -a, --all        Display all
+    -a, --all        All Stats
 ```
 
 ## Example
-```
-google-wifi-status -v
-// Software Version: 9334.41.3
+```bash
+$ google-wifi-status -v
+Software Version: 9334.41.3
 ```
 
-```
-google-wifi-status -u
-// Total Uptime: 0 days, 14 hours, 18 minutes, 40 seconds
+```bash
+$ google-wifi-status -u
+Total Uptime: 0 days, 11 hours, 05 minutes, 16 seconds
 ```
 
 ## License
