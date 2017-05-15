@@ -45,9 +45,19 @@ const getStatus = function () {
             if (program.ip) { log(text('IP Address:', status.wan.localIpAddress)); }
             if (program.dns) { log(text('DNS Servers:', status.wan.nameServers)); }
             if (program.all) {
+                log(text('\nSoftware:\n'));
                 log(text('Software Version:', status.software.softwareVersion));
+                log(text('Update Channel:', status.software.updateChannel));
+                log(text('Latest Software Version:', status.software.updateNewVersion));
+                log(text('Update Required:', status.software.updateRequired));
+                log(text('\nSystem:\n'));
+                log(text('Country Code:', status.system.countryCode.toUpperCase()));
+                log(text('Device ID:', status.system.deviceId));
+                log(text('Hardware ID:', status.system.hardwareId));
                 log(text('Total Uptime:', getFormattedTime(status.system.uptime)));
+                log(text('\nWAN:\n'));
                 log(text('Gateway IP:', status.wan.gatewayIpAddress));
+                log(text('IP Method:', status.wan.ipMethod.toUpperCase()));
                 log(text('IP Address:', status.wan.localIpAddress));
                 log(text('DNS Servers:', status.wan.nameServers));
             }
@@ -69,7 +79,7 @@ program
     .option('-g, --gip', 'Gateway IP')
     .option('-i, --ip', 'IP Address')
     .option('-d, --dns', 'DNS Servers')
-    .option('-a, --all', 'Display all')
+    .option('-a, --all', 'All Stats')
     .parse(process.argv);
 
 // If no option passed, show help
