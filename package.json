@@ -1,6 +1,6 @@
 {
   "name": "google-wifi-status",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Node.js CLI app that displays status of your Google Wifi router.",
   "main": "index.js",
   "bin": {
