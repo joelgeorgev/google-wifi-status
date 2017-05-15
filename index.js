@@ -5,8 +5,8 @@
 const http = require('http');
 const program = require('commander');
 const chalk = require('chalk');
-const blue = chalk.blue;
-const red = chalk.red;
+const text = chalk.blue;
+const error = chalk.red;
 const log = console.log;
 
 const getStatus = function () {
@@ -39,17 +39,17 @@ const getStatus = function () {
                     seconds + ' seconds';
             }
 
-            if (program.swversion) { log(blue('Software Version:', status.software.softwareVersion)); }
-            if (program.uptime) { log(blue('Total Uptime:', getFormattedTime(status.system.uptime))); }
-            if (program.gip) { log(blue('Gateway IP:', status.wan.gatewayIpAddress)); }
-            if (program.ip) { log(blue('IP Address:', status.wan.localIpAddress)); }
-            if (program.dns) { log(blue('DNS Servers:', status.wan.nameServers)); }
+            if (program.swversion) { log(text('Software Version:', status.software.softwareVersion)); }
+            if (program.uptime) { log(text('Total Uptime:', getFormattedTime(status.system.uptime))); }
+            if (program.gip) { log(text('Gateway IP:', status.wan.gatewayIpAddress)); }
+            if (program.ip) { log(text('IP Address:', status.wan.localIpAddress)); }
+            if (program.dns) { log(text('DNS Servers:', status.wan.nameServers)); }
             if (program.all) {
-                log(blue('Software Version:', status.software.softwareVersion));
-                log(blue('Total Uptime:', getFormattedTime(status.system.uptime)));
-                log(blue('Gateway IP:', status.wan.gatewayIpAddress));
-                log(blue('IP Address:', status.wan.localIpAddress));
-                log(blue('DNS Servers:', status.wan.nameServers));
+                log(text('Software Version:', status.software.softwareVersion));
+                log(text('Total Uptime:', getFormattedTime(status.system.uptime)));
+                log(text('Gateway IP:', status.wan.gatewayIpAddress));
+                log(text('IP Address:', status.wan.localIpAddress));
+                log(text('DNS Servers:', status.wan.nameServers));
             }
         });
     }
@@ -57,7 +57,7 @@ const getStatus = function () {
     const request = http.request(options, callback);
 
     request.on('error', function () {
-        log(red('Your Google Wifi is offline.'));
+        log(error('Your Google Wifi is offline.'));
     });
 
     request.end();
