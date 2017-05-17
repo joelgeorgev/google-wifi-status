@@ -1,5 +1,5 @@
 # Google Wifi Status
-A Node.js CLI app that displays status of your Google Wifi router.
+A Node.js CLI app that displays status of your Google Wifi / OnHub router.
 
 ## Installation
 ```bash
@@ -23,7 +23,6 @@ $ google-wifi-status --help
     -a, --all        All Stats
 ```
 
-## Example
 ```bash
 $ google-wifi-status -v
 Software Version: 9334.41.3
