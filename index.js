@@ -5,6 +5,7 @@
 const http = require('http');
 const program = require('commander');
 const chalk = require('chalk');
+const prettyMs = require('pretty-ms');
 const text = chalk.blue;
 const error = chalk.red;
 const log = console.log;
@@ -26,21 +27,8 @@ const getStatus = function () {
         response.on('end', function () {
             const status = JSON.parse(str);
 
-            const getFormattedTime = function (seconds) {
-                var minutes = Math.floor(seconds / 60);
-                seconds = seconds % 60;
-                var hours = Math.floor(minutes / 60);
-                minutes = minutes % 60;
-                var days = Math.floor(hours / 24);
-                hours = hours % 24;
-                return days + ' days, ' +
-                    hours + ' hours, ' +
-                    minutes + ' minutes, ' +
-                    seconds + ' seconds';
-            }
-
             if (program.swversion) { log(text('Software Version:', status.software.softwareVersion)); }
-            if (program.uptime) { log(text('Total Uptime:', getFormattedTime(status.system.uptime))); }
+            if (program.uptime) { log(text('Total Uptime:', prettyMs(status.system.uptime * 1000, { verbose: true }))); }
             if (program.gip) { log(text('Gateway IP:', status.wan.gatewayIpAddress)); }
             if (program.ip) { log(text('IP Address:', status.wan.localIpAddress)); }
             if (program.dns) { log(text('DNS Servers:', status.wan.nameServers)); }
@@ -54,7 +42,7 @@ const getStatus = function () {
                 log(text('Country Code:', status.system.countryCode.toUpperCase()));
                 log(text('Device ID:', status.system.deviceId));
                 log(text('Hardware ID:', status.system.hardwareId));
-                log(text('Total Uptime:', getFormattedTime(status.system.uptime)));
+                log(text('Total Uptime:', prettyMs(status.system.uptime * 1000, { verbose: true })));
                 log(text('\nWAN:\n'));
                 log(text('Gateway IP:', status.wan.gatewayIpAddress));
                 log(text('IP Method:', status.wan.ipMethod.toUpperCase()));
