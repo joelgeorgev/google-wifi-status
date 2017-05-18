@@ -1,5 +1,8 @@
-# Google Wifi Status [![Build Status](https://travis-ci.org/joelgeorgev/google-wifi-status.svg?branch=master)](https://travis-ci.org/joelgeorgev/google-wifi-status)
-A Node.js CLI app that displays status of your Google Wifi / OnHub router.
+# Google Wifi Status
+
+[![Build Status](https://travis-ci.org/joelgeorgev/google-wifi-status.svg?branch=master)](https://travis-ci.org/joelgeorgev/google-wifi-status)
+
+> A Node.js CLI app that displays status of your Google Wifi / OnHub router.
 
 ## Installation
 ```bash
