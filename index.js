@@ -3,6 +3,8 @@
 'use strict';
 
 const program = require('commander');
+const ora = require('ora');
+const cliSpinners = require('cli-spinners');
 const chalk = require('chalk');
 const prettyMs = require('pretty-ms');
 const api = require('./api');
@@ -24,8 +26,14 @@ if (!process.argv.slice(2).length) {
   program.help();
 }
 
+const spinner = ora({
+  text: 'Connecting',
+  spinner: cliSpinners.dots3
+}).start();
+
 api
   .then(status => {
+    spinner.stop();
     if (program.swversion) { log(text('Software Version:', status.software.softwareVersion)); }
     if (program.uptime) { log(text('Total Uptime:', prettyMs(status.system.uptime * 1000, { verbose: true }))); }
     if (program.gip) { log(text('Gateway IP:', status.wan.gatewayIpAddress)); }
@@ -49,4 +57,7 @@ api
       log(text('DNS Servers:', status.wan.nameServers));
     }
   })
-  .catch(err => { log(error(err)); });
+  .catch(err => {
+    spinner.stop();
+    log(error(err));
+  });

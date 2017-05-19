@@ -33,7 +33,7 @@ Software Version: 9334.41.3
 
 ```bash
 $ google-wifi-status -u
-Total Uptime: 0 days, 11 hours, 05 minutes, 16 seconds
+Total Uptime: 11 hours 5 minutes 16 seconds
 ```
 
 ## License

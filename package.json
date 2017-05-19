@@ -1,6 +1,6 @@
 {
   "name": "google-wifi-status",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "A Node.js CLI app that displays status of your Google Wifi / OnHub router.",
   "main": "index.js",
   "bin": {
@@ -21,7 +21,9 @@
   "homepage": "https://github.com/joelgeorgev/google-wifi-status#readme",
   "dependencies": {
     "chalk": "^1.1.3",
+    "cli-spinners": "^1.0.0",
     "commander": "^2.9.0",
+    "ora": "^1.2.0",
     "pretty-ms": "^2.1.0"
   },
   "keywords": [
