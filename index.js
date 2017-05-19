@@ -6,7 +6,7 @@ const program = require('commander');
 const chalk = require('chalk');
 const prettyMs = require('pretty-ms');
 const api = require('./api');
-const text = chalk.blue;
+const text = chalk.cyan;
 const error = chalk.red;
 const log = console.log;
 

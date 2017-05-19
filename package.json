@@ -1,13 +1,13 @@
 {
   "name": "google-wifi-status",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A Node.js CLI app that displays status of your Google Wifi / OnHub router.",
   "main": "index.js",
   "bin": {
     "google-wifi-status": "./index.js"
   },
   "scripts": {
-    "test": "ava && nyc ava"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,6 @@
     "stats"
   ],
   "devDependencies": {
-    "ava": "^0.19.1",
-    "nyc": "^10.3.2"
+    "ava": "^0.19.1"
   }
 }
