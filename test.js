@@ -15,7 +15,7 @@ test.cb('--all', t => {
   });
 });
 
-test.cb('-vugid', t => {
+test.cb('-vcugid', t => {
 
   // For Windows
   const cp = childProcess.spawn('node ./index.js -vugid', { shell: true });

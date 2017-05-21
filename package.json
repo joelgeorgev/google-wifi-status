@@ -1,6 +1,6 @@
 {
   "name": "google-wifi-status",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A Node.js CLI app that displays status of your Google Wifi / OnHub router.",
   "main": "index.js",
   "bin": {
@@ -34,6 +34,8 @@
     "node",
     "nodejs",
     "cli",
+    "command",
+    "terminal",
     "status",
     "stats"
   ],

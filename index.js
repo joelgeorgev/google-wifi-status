@@ -14,6 +14,7 @@ const log = console.log;
 
 program
   .option('-v, --swversion', 'Software Version')
+  .option('-c, --checkupdate', 'Check for Software update')
   .option('-u, --uptime', 'Total Uptime')
   .option('-g, --gip', 'Gateway IP')
   .option('-i, --ip', 'IP Address')
@@ -35,6 +36,10 @@ api
   .then(status => {
     spinner.stop();
     if (program.swversion) { log(text('Software Version:', status.software.softwareVersion)); }
+    if (program.checkupdate) {
+      status.software.updateRequired ? log(text(status.software.updateNewVersion + ' update is available.')) :
+        log(text('Your Google Wifi is up to date.'));
+    }
     if (program.uptime) { log(text('Total Uptime:', prettyMs(status.system.uptime * 1000, { verbose: true }))); }
     if (program.gip) { log(text('Gateway IP:', status.wan.gatewayIpAddress)); }
     if (program.ip) { log(text('IP Address:', status.wan.localIpAddress)); }
