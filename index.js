@@ -14,7 +14,7 @@ const log = console.log;
 
 program
   .option('-v, --swversion', 'Software Version')
-  .option('-c, --checkupdate', 'Check for Software update')
+  .option('-c, --checkupdate', 'Check for software update')
   .option('-u, --uptime', 'Total Uptime')
   .option('-g, --gip', 'Gateway IP')
   .option('-i, --ip', 'IP Address')

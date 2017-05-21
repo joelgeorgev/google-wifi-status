@@ -19,7 +19,7 @@ $ google-wifi-status --help
 
     -h, --help          output usage information
     -v, --swversion     Software Version
-    -c, --checkupdate   Check for Software update
+    -c, --checkupdate   Check for software update
     -u, --uptime        Total Uptime
     -g, --gip           Gateway IP
     -i, --ip            IP Address
