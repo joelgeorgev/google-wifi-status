@@ -48,8 +48,11 @@ api
       log(text('\nSoftware:\n'));
       log(text('Software Version:', status.software.softwareVersion));
       log(text('Update Channel:', status.software.updateChannel));
-      log(text('Latest Software Version:', status.software.updateNewVersion));
-      log(text('Update Required:', status.software.updateRequired));
+      const updateRequired = status.software.updateRequired;
+      if (updateRequired) {
+        log(text('Latest Software Version:', status.software.updateNewVersion));
+      }
+      log(text('Update Required:', updateRequired));
       log(text('\nSystem:\n'));
       log(text('Country Code:', status.system.countryCode.toUpperCase()));
       log(text('Device ID:', status.system.deviceId));
