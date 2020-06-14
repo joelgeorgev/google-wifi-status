@@ -1,6 +1,6 @@
 # Google Wifi Status
 
-![CI](https://github.com/joelgeorgev/google-wifi-status/workflows/CI/badge.svg)
+[![CI](https://github.com/joelgeorgev/google-wifi-status/workflows/CI/badge.svg)](https://github.com/joelgeorgev/google-wifi-status/actions)
 
 > A Node.js CLI app that displays status of your Google Wifi / OnHub router.
 
